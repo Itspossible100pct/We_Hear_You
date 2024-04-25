@@ -5,40 +5,31 @@ using UnityEngine;
 
 public class VinylPlaybackManager : MonoBehaviour
 {
-    
-    
-    
+
+
+
     [SerializeField] private AudioSource _audioSource;
 
     [SerializeField] private AudioClip _digitalSongVersion;
     [SerializeField] private AudioClip _vinylSongVersion;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-    private void OnCollisionStay(Collision other)
+
+    public void OnWaitAfterCrackle()
     {
-        if (other.gameObject.CompareTag("Needle"))
-        {
-            Debug.Log("Collision happened");
-            _audioSource.clip = _vinylSongVersion;
-            _audioSource.Play();
-        }
-        
+        StartCoroutine(PlaySongAfterDelay(2f));
     }
 
     public bool IsSongFinished()
     {
         return !_audioSource.isPlaying;
     }
-    
+
+    private IEnumerator PlaySongAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        _audioSource.clip = _vinylSongVersion;
+        _audioSource.Play();
+
+    }
 }

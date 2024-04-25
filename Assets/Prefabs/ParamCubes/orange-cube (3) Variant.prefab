@@ -89,5 +89,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _band: 3
   _startScale: 1
-  _maxScale: 8
+  _maxScale: 6
   _useBuffer: 1

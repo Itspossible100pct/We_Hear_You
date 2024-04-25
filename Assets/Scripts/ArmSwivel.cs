@@ -15,7 +15,8 @@ public class ArmSwivel : MonoBehaviour
         // Check if the collider is the vinyl
         if (other.gameObject.CompareTag("Vinyl") && _vinylPlaybackManager.IsSongFinished() && !_isMovingToLimit)
         {
-            StartCoroutine(MoveToLimitAfterDelay(3.0f)); // 3 seconds delay
+            //StartCoroutine(MoveToLimitAfterDelay(3.0f)); // 3 seconds delay
+            Debug.Log("move to limit after delay here");
         }
     }
 

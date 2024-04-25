@@ -22,22 +22,18 @@ public class NeedleBehavior : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other)
+    public void OnNeedleDrops()
     {
-        if (other.gameObject.CompareTag("Vinyl"))
-        {
-            _audioSource.PlayOneShot(_needleDrops[Random.Range(0, _needleDrops.Length)]);
-        }
+        _audioSource.PlayOneShot(_needleDrops[Random.Range(0, _needleDrops.Length)]);
+    }
+
+    public void OnDelayAfterNeedle()
+    {
+        StartCoroutine(PlayCrackleAfterDelay(0.5f));
         
     }
 
-    void OnCollisionStay()
-    {
-        StartCoroutine(PlayCrackleAfterDelay(1.0f));
-        
-    }
-
-    private void OnCollisionExit(Collision other)
+    public void OnNeedleLifted()
     {
         _audioSource.Stop();
     }
