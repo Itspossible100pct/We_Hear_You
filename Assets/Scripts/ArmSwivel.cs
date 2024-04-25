@@ -24,7 +24,7 @@ public class ArmSwivel : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         _isMovingToLimit = true;
-        MoveArmToHingeLimit();
+        //MoveArmToHingeLimit();
     }
 
     private void MoveArmToHingeLimit()

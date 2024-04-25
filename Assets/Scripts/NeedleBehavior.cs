@@ -57,7 +57,7 @@ public class NeedleBehavior : MonoBehaviour
     public void OnNeedleLifted()
     {
         _audioSource.Stop();
-        _vinylPlaybackManager.StopSongOnNeedleLifted();
+        //_vinylPlaybackManager.StopSongOnNeedleLifted();
     }
 
     private IEnumerator PlayCrackleAfterDelay(float delay)
