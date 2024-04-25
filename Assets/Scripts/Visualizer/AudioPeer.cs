@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 [RequireComponent(typeof(AudioSource))]
 public class AudioPeer : MonoBehaviour
 {
-    private AudioSource _audioSource;
+    [SerializeField] private AudioSource _vinylSource;
     public static float[] _samples = new float[512];
 
     private float[] _freqBand = new float[8];
@@ -23,7 +23,7 @@ public class AudioPeer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _audioSource = GetComponent<AudioSource>();
+        _vinylSource.GetComponent<AudioSource>();
         AudioProfile(_audioProfile);
     }
 
@@ -146,7 +146,7 @@ public class AudioPeer : MonoBehaviour
 
     private void GetSpectrumAudioSource()
     {
-        _audioSource.GetSpectrumData(_samples, 0, FFTWindow.Blackman);
+        _vinylSource.GetSpectrumData(_samples, 0, FFTWindow.Blackman);
     }
     
     

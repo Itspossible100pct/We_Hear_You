@@ -22,6 +22,27 @@ public class NeedleBehavior : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        //if (other.CompareTag("Needle"))
+        {
+            Debug.Log("Entered for Needle");
+       
+            OnNeedleDrops();
+            OnDelayAfterNeedle();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+       // if (other.CompareTag("Needle"))
+        {
+            Debug.Log("Exit for Needle");
+            OnNeedleLifted();
+        }
+        
+    }
+
     public void OnNeedleDrops()
     {
         _audioSource.PlayOneShot(_needleDrops[Random.Range(0, _needleDrops.Length)]);
@@ -36,6 +57,7 @@ public class NeedleBehavior : MonoBehaviour
     public void OnNeedleLifted()
     {
         _audioSource.Stop();
+        _vinylPlaybackManager.StopSongOnNeedleLifted();
     }
 
     private IEnumerator PlayCrackleAfterDelay(float delay)
